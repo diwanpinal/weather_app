@@ -50,6 +50,7 @@ body {
 #current-forecast .description {
     font-size: var(--font-regular);
     font-weight: var(--font-semibold);
+    text-transform: capitalize;
 }
 
 #current-forecast .min-max-temp {

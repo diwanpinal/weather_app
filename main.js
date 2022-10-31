@@ -5,13 +5,14 @@ const getCurrentWeatherData = async() => {
     return response.json()
 }
 
+const formatTemperature = (temp) => `${temp?.toFixed(1)}°`;
 
 const loadCurrentForercast = ({ name, main: { temp, temp_max, temp_min }, weather: [{ description }] }) => {
     const currentForecastElement = document.querySelector("#current-forecast");
     currentForecastElement.querySelector(".city").textContent = name;
-    currentForecastElement.querySelector(".temp").textContent = temp;
+    currentForecastElement.querySelector(".temp").textContent = formatTemperature(temp);
     currentForecastElement.querySelector(".description").textContent = description;
-    currentForecastElement.querySelector(".min-max-temp").textContent = `H: ${temp_max} L:${temp_min}`;
+    currentForecastElement.querySelector(".min-max-temp").textContent = `H: ${formatTemperature(temp_max)} L:${formatTemperature(temp_min)}`;
 
 }
 
